@@ -10,16 +10,9 @@ const PORT = 5500;
 app.use(cors());
 
 app.use(express.json());
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:false})); app.use("/api", ProductRoutes);
 
-
-
-app.use("/api", ProductRoutes);
-
-dotenv.config();
-
-
-mongoose.connect(process.env.MONGO_URI, {
+dotenv.config(); mongoose.connect(process.env.MONGO_URI, {
     useUnifiedTopology: true,
 })
     .then(console.log("Connected to mongoDB..."))
